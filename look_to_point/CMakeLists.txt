@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   control_msgs
   geometry_msgs
+  pal_detection_msgs
 )
 
 find_package(OpenCV REQUIRED 
@@ -24,6 +25,11 @@ include_directories(
 
 add_executable(look_to_point src/look_to_point.cpp)
 target_link_libraries(look_to_point
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES})
+
+add_executable(look_to_face src/look_to_face.cpp)
+target_link_libraries(look_to_face
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES})
 
